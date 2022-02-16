@@ -1,0 +1,132 @@
+{
+  "_version": "1.31.0",
+  "sap.app": {
+    "id": "br.com.db.databindingclass",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "ach": "ach",
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/iwbep/GWSAMPLE_BASIC",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0",
+          "localUri": "localService/metadata.xml"
+        }
+      }
+		}
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://task",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+
+  "sap.ui5": {
+    "flexEnabled": false,
+    "rootView": {
+      "viewName": "br.com.db.databindingclass.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    },
+    "dependencies": {
+      "minUI5Version": "1.66.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "br.com.db.databindingclass.i18n.i18n"
+        }
+      },
+			"": {
+				"dataSource": "mainService",
+				"preload": true
+			}
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "br.com.db.databindingclass.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false,
+        "bypassed":{
+            "target": ["NotFound"]
+        }
+      },
+      "routes": [
+        {
+          "name": "RouteOrdens",
+          "pattern": "",
+          "target": ["TargetOrdens"]
+        },
+        {
+          "name": "Produto",
+          "pattern": "/produto/{idProd}",
+          "target": ["TargetProduto"]
+        }        
+      ],
+      "targets": {
+        "TargetOrdens": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Ordens",
+          "viewName": "Ordens",
+          "controlId": "app"
+        },
+      "TargetProduto": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,          
+          "viewName": "Produto",
+          "controlId": "app"
+        },        
+      "NotFound": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,          
+          "viewName": "NotFound",
+          "controlId": "app"
+        }                      
+      }
+    }
+  }
+}

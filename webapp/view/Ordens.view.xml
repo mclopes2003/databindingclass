@@ -1,0 +1,68 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="br.com.db.databindingclass.controller.Ordens" displayBlock="true">
+	<Shell id="shell">
+		<App>
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+					    <List noDataText="Drop list items here" id="list0" items="{path:'/SalesOrderSet',parameters:{expand:'ToLineItems'}}" growingThreshold="5" growing="true">
+					    <items>
+					        <CustomListItem type="Navigation" id="item1">
+					        <content>
+					            <VBox width="100%" direction="Column" id="vbox0" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+					                <items>
+					                    <HBox width="100%" id="hbox0">
+					                        <items>
+					                            <sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" src="sap-icon://sales-order" size="2em" id="icon0"/>
+					                            <VBox width="100%" direction="Column" id="vbox1" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+					                                <items>
+					                                    <Title xmlns="sap.m" text="Ordem: {SalesOrderID}" id="title0"/>
+					                                    <Label text="Customer: {CustomerID}" width="100%" id="label0"/>
+					                                    <Label text="Note: {Note}" width="100%" id="label1"/>
+					                                    <Table noDataText="Drop column list items here and columns in the area above" id="table0"  items="{ToLineItems}" inset="true" updateFinished="onUpdateFinished">
+					                                        <items>
+					                                            <ColumnListItem type="Active" id="item0" press="onListItemPress">
+					                                                <cells>
+					                                                    <Text text="{ItemPosition}" id="text0"/>
+					                                                    <Text text="{ProductID}" id="text1"/>
+					                                                    <Text text="{Quantity}" id="text2"/>
+                                                                        <ObjectNumber xmlns="sap.m" number="{GrossAmount}" unit="{CurrencyCode}" id="number0"/>
+                                                                    </cells>
+					                                            </ColumnListItem>
+					                                        </items>
+					                                        <columns>
+					                                            <Column id="column0">
+					                                                <header>
+					                                                    <Label text="Item Position" id="label0_1617837114769"/>
+					                                                </header>
+					                                            </Column>
+					                                            <Column id="column1">
+					                                                <header>
+					                                                    <Label text="Product ID" id="label1_1617837114770"/>
+					                                                </header>
+					                                            </Column>
+					                                            <Column id="column2">
+					                                                <header>
+					                                                    <Label text="Quantity" id="label2"/>
+					                                                </header>
+					                                            </Column>
+                                                                <Column id="column3">
+					                                                <header>
+					                                                    <Label text="Gross Amount" id="label3"/>
+					                                                </header>
+					                                            </Column>
+                                                                </columns></Table>					                                </items>
+					                            </VBox>
+					                        </items>
+					                    </HBox>
+					                </items>
+					            </VBox>
+					        </content>
+					        </CustomListItem>
+					    </items>
+					    </List>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

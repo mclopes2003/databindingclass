@@ -1,0 +1,155 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:core="sap.ui.core" controllerName="br.com.db.databindingclass.controller.Produto" height="100%">
+<ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false">
+        <headerTitle>
+            <ObjectPageDynamicHeaderTitle>
+                <expandedHeading>
+                
+                        <!-- Adicionar um Title --> 
+                <Title xmlns="sap.m" text="Produto: {ProductID}" id="title1"/> 
+                </expandedHeading>
+
+                <snappedHeading>
+                        <!-- Adicionar VBox / HBox / Title / Text -->
+                <m:HBox width="100%" id="hbox0">
+                    <m:items>
+                        <m:VBox width="100%" direction="Column" id="vbox0">
+                            <m:items>
+                                <Title xmlns="sap.m" text="Produto: {ProductID}" id="title2"/>
+                                <Text xmlns="sap.m" text="{Name}" id="text7"/>
+                            </m:items>
+                        </m:VBox>
+                    </m:items>
+                </m:HBox>
+                </snappedHeading>
+
+                <expandedContent>
+                    <!-- Adicionar um Text -->  
+                <Text xmlns="sap.m" text="{Name}" id="text8"/>  
+                </expandedContent>
+
+                <actions>
+                    <ObjectPageHeaderActionButton text="Voltar" type="Emphasized" press="onNavBack" hideText="false"/>                    
+                </actions>
+            </ObjectPageDynamicHeaderTitle>
+        </headerTitle>
+
+        <headerContent>
+            <!-- Adicionar FlexBox / VBox / Title / Label / ProgressIndicator -->
+            <m:FlexBox wrap="Wrap" fitContainer="true">
+            
+                
+            <m:items>
+            
+                                
+
+                <m:VBox width="100%" direction="Column" id="vbox2" class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+
+            
+                
+                    <m:items>
+                                                    
+                        <Title xmlns="sap.m" text="Categoria" id="title3" class="sapUiTinyMarginBottom"/>
+            
+                
+                        <m:Label text="{Category}" width="100%" id="label0"/>
+            
+                
+                    </m:items>
+            
+                
+                </m:VBox>
+            
+                
+                <m:VBox width="100%" direction="Column" id="vbox3" class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+            
+                
+                    <m:items>
+            
+                
+                        <Title xmlns="sap.m" text="Fornecedor" id="title4" class="sapUiTinyMarginBottom"/>
+            
+                
+                        <m:Label text="{SupplierID}" width="100%" id="label1"/>
+            
+                
+                        <m:Label text="{SupplierName}" width="100%" id="label2"/>
+            
+                
+                        <m:Label text="{TypeCode}" width="100%" id="label3"/>
+            
+                
+                    </m:items>
+            
+                
+                </m:VBox>
+            
+                
+                <m:VBox width="448px" direction="Column" id="vbox4" class="sapUiSmallMarginBottom">
+            
+                
+                    <m:items>
+            
+                
+                        <Title xmlns="sap.m" text="Descrição" id="title5" class="sapUiTinyMarginBottom"/>
+            
+                
+                        <Text xmlns="sap.m" text="{Description}" id="text9"/>
+            
+                
+                    </m:items>
+            
+                
+                </m:VBox>
+            
+                
+            </m:items>
+            
+                
+            </m:FlexBox>
+        </headerContent>
+
+        <sections>
+            <ObjectPageSection titleUppercase="false" id="fornSection" title="Fornecedor">
+                <subSections>
+                    <ObjectPageSubSection titleUppercase="false">
+                        <blocks>
+                            <sap.ui.layout.form:SimpleForm 
+                                editable="false"
+                                layout="ResponsiveGridLayout"
+                                labelSpanXL="3"
+                                labelSpanL="3"
+                                labelSpanM="3"
+                                labelSpanS="12"
+                                adjustLabelSpan="false"
+                                emptySpanXL="4"
+                                emptySpanL="4"
+                                emptySpanM="4"
+                                emptySpanS="0"
+                                columnsXL="1"
+                                columnsL="1"
+                                columnsM="1"
+                                singleContainerFullSize="false"
+                                xmlns:sap.ui.layout.form="sap.ui.layout.form" id="form0">
+                                
+                                    <sap.ui.layout.form:content>
+                                      <m:Label text="Business Partner ID" />
+                                        <m:Text text="{BusinessPartnerID}" />
+                                        <m:Label text="Company Name" />
+                                        <m:Text text="{CompanyName}" />
+                                        <m:Label text="Web Address" />
+                                        <m:Text text="{WebAddress}" />
+                                        <m:Label text="Email Address" />
+                                        <m:Text text="{EmailAddress}" />
+
+                                    </sap.ui.layout.form:content>
+                                
+                            </sap.ui.layout.form:SimpleForm>                            
+                        
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+            
+        </sections>
+    </ObjectPageLayout>
+</mvc:View>

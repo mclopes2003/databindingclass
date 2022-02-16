@@ -1,0 +1,19 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="br.com.db.databindingclass.controller.NotFound"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+    <App>
+        <pages>
+            <Page title="Title" showHeader="false">
+                <content>
+
+                    <MessagePage showHeader="false" text="Informação não localizada!!" enableFormattedText="true"
+                                 description="Essa URL de acesso está inválida!!" icon="sap-icon://message-warning">
+                        <buttons>
+                            <Button text="Voltar" press="onNavBack"></Button>
+                        </buttons>
+                    </MessagePage>                
+                
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>
